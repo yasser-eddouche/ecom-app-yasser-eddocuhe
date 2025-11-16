@@ -1,4 +1,7 @@
 package org.example.billingservice.repository;
 
-public interface ProductItemRepository {
+import org.example.billingservice.entities.ProductItem;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface ProductItemRepository extends JpaRepository<ProductItem,Long> {
 }

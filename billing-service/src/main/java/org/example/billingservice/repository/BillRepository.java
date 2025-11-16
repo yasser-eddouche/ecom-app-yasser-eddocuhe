@@ -1,4 +1,7 @@
 package org.example.billingservice.repository;
 
-public class BillRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.example.billingservice.entities.Bill;
+
+public interface BillRepository extends JpaRepository<Bill,Long> {
 }
