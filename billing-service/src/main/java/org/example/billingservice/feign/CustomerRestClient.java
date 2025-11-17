@@ -10,7 +10,7 @@ import java.util.List;
 @FeignClient(name = "customer-service")
 public interface CustomerRestClient {
     @GetMapping("/api/customers/{id}")
-    public Customer findById(@PathVariable long id);
+    public Customer getCustomerById(@PathVariable long id);
 
     @GetMapping("/api/customers")
     public PagedModel<Customer> getAllCustomers();

@@ -25,10 +25,11 @@ public class BillingServiceApplication {
     }
 
     @Bean
-    CommandLineRunner commandLineRunner(BillRepository billRepository,
+    CommandLineRunner commandLineRunner(BillRepository  billRepository,
                                         ProductItemRepository productItemRepository,
-                                        ProductRestClient productRestClient,
-                                        CustomerRestClient customerRestClient) {
+                                        CustomerRestClient customerRestClient,
+                                        ProductRestClient productRestClient){
+
         return args -> {
             Collection<Customer> customers = customerRestClient.getAllCustomers().getContent();
             Collection<Product> products = productRestClient.getAllProducts().getContent();
@@ -43,7 +44,7 @@ public class BillingServiceApplication {
                     ProductItem productItem = ProductItem.builder()
                             .bill(bill)
                             .productId(product.getId())
-                            .quantity(1 + new Random().nextInt(100))
+                            .quantity(1+new Random().nextInt(10))
                             .unitPrice(product.getPrice())
                             .build();
                     productItemRepository.save(productItem);
